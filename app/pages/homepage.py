@@ -16,7 +16,13 @@ st.markdown("Some additional text")
 ROOT_APP = Path(__file__).parent.parent
 st.write(ROOT_APP)
 
-df_disney = pd.read_csv(ROOT_APP / "data" / "disney_movies_clean.csv")
+
+@st.cache_data
+def read_data_cache():
+    return pd.read_csv(ROOT_APP / "data" / "disney_movies_clean.csv")
+
+
+df_disney = read_data_cache()
 
 
 st.header("Introduction")
