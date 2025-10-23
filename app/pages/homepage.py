@@ -10,8 +10,8 @@ st.header("Hello world!")
 st.markdown("Some additional text")
 
 
-ROOT = Path(__file__).parent  # .../app
-df_disney = pd.read_csv(ROOT / "data" / "disney_movies_clean.csv")
+# ROOT = Path(__file__).parent  # .../app
+# df_disney = pd.read_csv(ROOT / "data" / "disney_movies_clean.csv")
 
 st.header("Project Intro")
 
@@ -33,7 +33,7 @@ if user_input_password == true_pw:
 
     with col_data:
         st.subheader("Raw Data")
-        st.dataframe(df_disney)
+        # st.dataframe(df_disney)
 
     with col_chart:
         st.subheader("Data Overview")
