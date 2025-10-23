@@ -25,8 +25,6 @@ with st.sidebar:
 
 true_pw = st.secrets["true_password"]
 
-st.write(true_pw)
-
 st.header(user_input_password)
 
 if user_input_password == true_pw:
