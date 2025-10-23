@@ -4,38 +4,13 @@ from pathlib import Path
 
 st.set_page_config("Class Sample Project", page_icon="🐍", layout="wide")
 
-st.title("Sample Project")
 
-st.header("Hello world!")
+home_page = st.Page("pages/homepage.py", title="Homepage")
 
-st.markdown("Some additional text")
+data_page = st.Page("pages/data_overview.py")
 
+user_pages = [home_page, data_page]
 
-ROOT = Path(__file__).parent  # .../app
-df_disney = pd.read_csv(ROOT / "data" / "disney_movies_clean.csv")
+pg = st.navigation(user_pages, position="sidebar", expanded=True)
 
-st.header("Project Intro")
-
-st.header("Data overview")
-
-
-with st.sidebar:
-    user_input_password = st.text_input("Enter your password:", width=300)
-
-
-true_pw = st.secrets["true_password"]
-
-
-if user_input_password == true_pw:
-
-    st.subheader("This is a secret page")
-
-    col_data, _, col_chart = st.columns((0.8, 0.05, 1))
-
-    with col_data:
-        st.subheader("Raw Data")
-        st.dataframe(df_disney)
-
-    with col_chart:
-        st.subheader("Data Overview")
-        st.markdown("Placeholder for chart")
+pg.run()
